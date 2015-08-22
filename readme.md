@@ -6,6 +6,14 @@ A simple Laravel ticket and client management system
 
 Coming Soon
 
+## Setup
+
+- Seed database with default administrator
+
+```
+php artisan db:seed
+```
+
 ## What's Next?
 
 - Create base layout theme
