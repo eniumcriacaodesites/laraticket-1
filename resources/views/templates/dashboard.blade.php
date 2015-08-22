@@ -71,6 +71,9 @@
 
     <div id="main" class="container">
         <div class="messages">
+            @if (Session::has('status'))
+                <div class="alert alert-info">{{ Session::get('status') }}</div>
+            @endif
             @include('flash::message')
         </div>
 

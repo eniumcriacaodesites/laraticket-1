@@ -33,4 +33,23 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function put($data){
+        $data['password'] = \Hash::make($data['password']);
+        $this->fill($data);
+        $this->save();
+        return $this;
+    }
+
+    public function patch($data){
+        if(!empty($data['password'])){
+            $data['password'] = \Hash::make($data['password']);
+        }else{
+            unset($data['password']);
+        }
+        $this->fill($data);
+        $this->save();
+        return $this;
+    }
+
 }
