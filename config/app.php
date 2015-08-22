@@ -146,6 +146,7 @@ return [
 
         Zizaco\Entrust\EntrustServiceProvider::class,
         Caffeinated\Flash\FlashServiceProvider::class,
+        Former\FormerServiceProvider::class,
 
     ],
 
@@ -197,6 +198,7 @@ return [
 
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
         'Flash' => Caffeinated\Flash\Facades\Flash::class,
+        'Former' => Former\Facades\Former::class,
 
     ],
 
