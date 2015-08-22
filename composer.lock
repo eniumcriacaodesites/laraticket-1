@@ -4,8 +4,58 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "50d275f3730e70225d6e60908387a7bb",
+    "hash": "76557a051e9d66dba88711302f2869cf",
     "packages": [
+        {
+            "name": "caffeinated/flash",
+            "version": "v2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caffeinated/flash.git",
+                "reference": "15b97d6ba7cea999ee0170a040652e7271b73f81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caffeinated/flash/zipball/15b97d6ba7cea999ee0170a040652e7271b73f81",
+                "reference": "15b97d6ba7cea999ee0170a040652e7271b73f81",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.1.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Caffeinated\\Flash": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shea Lewis",
+                    "email": "shea.lewis89@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 Flash Messages",
+            "keywords": [
+                "caffeinated",
+                "flash",
+                "laravel"
+            ],
+            "time": "2015-06-26 17:44:04"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "2.0.0",

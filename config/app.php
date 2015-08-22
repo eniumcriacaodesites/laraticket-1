@@ -145,6 +145,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Caffeinated\Flash\FlashServiceProvider::class,
 
     ],
 
@@ -195,6 +196,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
+        'Flash' => Caffeinated\Flash\Facades\Flash::class,
 
     ],
 

@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
+    Flash::success('This is a success message.');
     return view('welcome');
 });
