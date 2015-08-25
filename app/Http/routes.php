@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    Flash::success('This is a success message.');
-    return view('welcome');
-});
+Route::get('/', 'DashboardController@getIndex');
 
 Route::group(['prefix'=>'auth'],function(){
     Route::get('login', 'Auth\AuthController@getLogin');
