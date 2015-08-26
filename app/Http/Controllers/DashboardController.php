@@ -14,6 +14,6 @@ class DashboardController extends Controller
     }
 
     public function getIndex(){
-        dd('test');
+        return view('dashboard.index');
     }
 }

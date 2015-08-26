@@ -32,7 +32,16 @@ class UserFormRequest extends Request {
             if (strstr($routeAction['uses'], 'patchIndex')) {
                 $user = Auth::user();
             } else {
-                $user = User::find($routeParameters['one']);
+                $uid = false;
+                if(isset($routeParameters['userId'])){
+                    $uid = $routeParameters['userId'];
+                }else if(isset($routeParameters['one'])){
+                    $uid = $routeParameters['one'];
+                }
+                $user = User::find($uid);
+                if(!$user){
+                    dd('error');
+                }
             }
         }
         switch($this->method()) {

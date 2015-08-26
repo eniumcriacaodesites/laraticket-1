@@ -30,3 +30,12 @@ Route::group(['prefix'=>'account'],function(){
     Route::get('/','AccountController@getIndex');
     Route::patch('/','AccountController@patchIndex');
 });
+
+Route::group(['prefix'=>'users'],function(){
+    Route::get('/','UserController@getIndex');
+    Route::get('create','UserController@getCreate');
+    Route::put('create','UserController@putCreate');
+    Route::get('edit/{userId}','UserController@getUpdate');
+    Route::patch('edit/{userId}','UserController@patchUpdate');
+    Route::delete('delete/{userId}','UserController@deleteDelete');
+});
