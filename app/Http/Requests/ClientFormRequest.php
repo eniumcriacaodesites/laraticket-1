@@ -1,11 +1,10 @@
 <?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use App\User;
 use Auth;
 use Route;
 
-class UserFormRequest extends Request {
+class ClientFormRequest extends Request {
 
     /**
      * Determine if the user is authorized to make this request.
@@ -25,23 +24,19 @@ class UserFormRequest extends Request {
      */
     public function rules()
     {
-        $user = false;
+        $client = false;
         if($this->method() == 'PATCH') {
             $routeAction = $this->route()->getAction();
             $routeParameters = $this->route()->parameters();
-            if (strstr($routeAction['uses'], 'patchIndex')) {
-                $user = Auth::user();
-            } else {
-                $uid = false;
-                if(isset($routeParameters['userId'])){
-                    $uid = $routeParameters['userId'];
-                }else if(isset($routeParameters['one'])){
-                    $uid = $routeParameters['one'];
-                }
-                $user = User::find($uid);
-                if(!$user){
-                    dd('error');
-                }
+            $cid = false;
+            if(isset($routeParameters['clientId'])){
+                $cid = $routeParameters['clientId'];
+            }else if(isset($routeParameters['one'])){
+                $cid = $routeParameters['one'];
+            }
+            $client = \App\Client::find($cid);
+            if(!$client){
+                dd('error');
             }
         }
         switch($this->method()) {
@@ -51,14 +46,12 @@ class UserFormRequest extends Request {
             }
             case 'PUT': {
                 return [
-                    'email' => 'required|email|unique:users,email',
-                    'password' => 'required|min:8',
+                    'name' => 'required|unique:clients,name',
                 ];
             }
             case 'PATCH': {
                 return [
-                    'email' => 'required|email|unique:users,email,' . $user->id,
-                    'password'   => 'min:8',
+                    'name' => 'required|unique:clients,name,' . $client->id,
                 ];
             }
             default:

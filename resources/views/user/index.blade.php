@@ -19,7 +19,7 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at }}</td>
+                    <td>{{ date('F d, Y @g:ia', strtotime($user->created_at)) }}</td>
                     <td>
                         <!-- Split button -->
                         <div class="btn-group">

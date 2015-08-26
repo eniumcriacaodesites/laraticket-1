@@ -39,3 +39,12 @@ Route::group(['prefix'=>'users'],function(){
     Route::patch('edit/{userId}','UserController@patchUpdate');
     Route::delete('delete/{userId}','UserController@deleteDelete');
 });
+
+Route::group(['prefix'=>'clients'],function(){
+    Route::get('/','ClientController@getIndex');
+    Route::get('create','ClientController@getCreate');
+    Route::put('create','ClientController@putCreate');
+    Route::get('edit/{clientId}','ClientController@getUpdate');
+    Route::patch('edit/{clientId}','ClientController@patchUpdate');
+    Route::delete('delete/{clientId}','ClientController@deleteDelete');
+});
