@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>{{ Config::get('project.name') }} - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/css/resources.css') }}">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/yeti/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
 </head>
 <body>
@@ -30,9 +30,9 @@
 
                     @if(!Auth::guest())
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="{{ url('/') }}">Dashboard</a></li>
-                            <li><a href="{{ url('clients') }}">Clients</a></li>
-                            <li><a href="{{ url('tickets') }}">Tickets</a></li>
+                            <li><a href="{{ url('/') }}"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
+                            <li><a href="{{ url('tickets') }}"><span class="glyphicon glyphicon-tags"></span> Tickets</a></li>
+                            <li><a href="{{ url('clients') }}"><span class="glyphicon glyphicon-briefcase"></span> Clients</a></li>
                             @if(Auth::user()->hasRole('admin'))
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"

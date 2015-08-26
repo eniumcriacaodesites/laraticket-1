@@ -1,1 +1,1 @@
-{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA","file":"app.css","sourcesContent":[],"sourceRoot":"/source/"}
+{"version":3,"sources":["app.scss"],"names":[],"mappings":"AACG;EACD,aAAY,EADT;EAEF;IACC,aAAY,EADN","file":"app.css","sourcesContent":["//Override dynatable\r\nth a{\r\n  color: #000;\r\n  &:hover{\r\n    color: #666;\r\n  }\r\n}"],"sourceRoot":"/source/"}

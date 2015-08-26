@@ -1,2 +1,6 @@
+th a {
+  color: #000; }
+  th a:hover {
+    color: #666; }
 
 /*# sourceMappingURL=app.css.map */
