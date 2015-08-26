@@ -13,7 +13,7 @@ class ClientController extends Controller
     }
 
     public function getIndex(){
-        $clients = \App\Client::all();
+        $clients = \App\Client::orderBy('name','ASC')->get();
         return view('client.index',['clients'=>$clients]);
     }
     public function getCreate(){
