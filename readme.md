@@ -26,7 +26,7 @@ php artisan key:generate
 php artisan migrate
 ```
 
-- Seed database with default admin user
+- Seed database with default admin user and default ticket statuses
 
 ```
 php artisan db:seed
@@ -39,10 +39,6 @@ php artisan db:seed
 
 ## What's Next?
 
-- Create routes for auth and setup views
-- Team user management
-- Client manager
-- Status manager
 - Ticket management
   - Assign ticket to client or null
   - Assign one or more users to ticket

@@ -48,3 +48,12 @@ Route::group(['prefix'=>'clients'],function(){
     Route::patch('edit/{clientId}','ClientController@patchUpdate');
     Route::delete('delete/{clientId}','ClientController@deleteDelete');
 });
+
+Route::group(['prefix'=>'statuses'],function(){
+    Route::get('/','StatusController@getIndex');
+    Route::get('create','StatusController@getCreate');
+    Route::put('create','StatusController@putCreate');
+    Route::get('edit/{statusId}','StatusController@getUpdate');
+    Route::patch('edit/{statusId}','StatusController@patchUpdate');
+    Route::delete('delete/{statusId}','StatusController@deleteDelete');
+});

@@ -33,7 +33,7 @@ class UserController extends Controller
     public function patchUpdate(UserFormRequest $request, $userId){
         $user = \App\User::find($userId);
         if(!$user){
-            \Flash::danger('User not found');
+            \Flash::error('User not found');
             return redirect('users');
         }
         $user->patch($request->all());
@@ -44,7 +44,7 @@ class UserController extends Controller
     {
         $user = \App\User::find($userId);
         if(!$user){
-            \Flash::danger('User not found');
+            \Flash::error('User not found');
             return redirect('users');
         }
         $user->delete();

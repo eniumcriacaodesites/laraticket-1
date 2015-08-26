@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClientFormRequest;
-use App\Role;
 
 class ClientController extends Controller
 {
@@ -33,7 +32,7 @@ class ClientController extends Controller
     public function patchUpdate(ClientFormRequest $request, $clientId){
         $client = \App\Client::find($clientId);
         if(!$client){
-            \Flash::danger('Client not found');
+            \Flash::error('Client not found');
             return redirect('clients');
         }
         $client->patch($request->all());
@@ -42,9 +41,9 @@ class ClientController extends Controller
     }
     public function deleteDelete($clientId)
     {
-        $client = \App\User::find($clientId);
+        $client = \App\Client::find($clientId);
         if(!$client){
-            \Flash::danger('Client not found');
+            \Flash::error('Client not found');
             return redirect('clients');
         }
         $client->delete();

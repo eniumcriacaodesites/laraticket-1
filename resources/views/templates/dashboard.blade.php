@@ -40,7 +40,7 @@
                                                 class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="{{ url('users') }}">Users</a></li>
-                                        <li><a href="{{ url('settings') }}">Settings</a></li>
+                                        <li><a href="{{ url('statuses') }}">Statuses</a></li>
                                     </ul>
                                 </li>
                             @endif
