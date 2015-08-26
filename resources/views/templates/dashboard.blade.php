@@ -71,10 +71,26 @@
 
     <div id="main" class="container">
         <div class="messages">
+            <?php
+            //Appears during password resets
+            ?>
             @if (Session::has('status'))
                 <div class="alert alert-info">{{ Session::get('status') }}</div>
             @endif
+
+            <?php
+            //These should be the only flash messages
+            ?>
             @include('flash::message')
+
+            <?php
+            //Appears during form request errors
+            ?>
+            @unless($errors->count()==0)
+                @foreach($errors->all() as $err)
+                    <p class="alert alert-danger">{{$err}}</p>
+                @endforeach
+            @endunless
         </div>
 
         @yield('content')
