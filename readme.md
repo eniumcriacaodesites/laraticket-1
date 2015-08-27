@@ -40,7 +40,6 @@ php artisan db:seed
 ## What's Next?
 
 - Ticket management
-  - Assign ticket to client or null
   - Assign one or more users to ticket
 - Dashboard to view tickets (View my / View all / Filter status)
 

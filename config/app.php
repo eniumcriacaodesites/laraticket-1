@@ -144,6 +144,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Providers\HelperServiceProvider::class,
+
         Zizaco\Entrust\EntrustServiceProvider::class,
         Caffeinated\Flash\FlashServiceProvider::class,
         Former\FormerServiceProvider::class,

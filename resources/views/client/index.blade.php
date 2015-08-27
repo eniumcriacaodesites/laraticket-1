@@ -23,7 +23,7 @@
                     <td>{{ date('F d, Y', strtotime($client->created_at)) }}</td>
                     <td>
                         @if($client->user)
-                        {{ $client->user->email }}
+                            {{ $client->user->email }}
                         @endif
                     </td>
                     <td>

@@ -12,8 +12,25 @@ class Ticket extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function status(){
+        return $this->belongsTo('App\Status');
+    }
+
     public function client(){
         return $this->belongsTo('App\Client');
+    }
+
+    public function put($data){
+        $this->fill($data);
+        $this->user_id = \Auth::user()->id;
+        $this->save();
+        return $this;
+    }
+
+    public function patch($data){
+        $this->fill($data);
+        $this->save();
+        return $this;
     }
 
 }

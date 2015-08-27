@@ -57,3 +57,12 @@ Route::group(['prefix'=>'statuses'],function(){
     Route::patch('edit/{statusId}','StatusController@patchUpdate');
     Route::delete('delete/{statusId}','StatusController@deleteDelete');
 });
+
+Route::group(['prefix'=>'tickets'],function(){
+    Route::get('/','TicketController@getIndex');
+    Route::get('create','TicketController@getCreate');
+    Route::put('create','TicketController@putCreate');
+    Route::get('edit/{ticketId}','TicketController@getUpdate');
+    Route::patch('edit/{ticketId}','TicketController@patchUpdate');
+    Route::delete('delete/{ticketId}','TicketController@deleteDelete');
+});
