@@ -9,6 +9,8 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
      */
     protected $baseUrl = 'http://localhost';
 
+    public $faker;
+
     /**
      * Creates the application.
      *
@@ -25,6 +27,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
 
     public function setUp(){
         parent::setUp();
+        $this->faker = \Faker\Factory::create();
         Artisan::call('migrate');
     }
 }

@@ -6,17 +6,20 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class DashboardTest extends TestCase
 {
-    //use DatabaseMigrations;
+    use DatabaseMigrations;
 
     public function testDashboardRequiresAuth()
     {
-        $this->visit('/')->see('Login');
+        $this->visit('/')
+            ->seePageIs('auth/login');
     }
 
-    public function testDashboardWithAuth(){
+    public function testDashboardWithAuth()
+    {
         $user = factory(App\User::class)->create();
-        dd($user);
-        $this->visit();
+        $this->actingAs($user)
+            ->visit('/')
+            ->seePageIs('/');
     }
 
 }
