@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\FormHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserFormRequest;
 use App\Role;
@@ -18,7 +19,16 @@ class UserController extends Controller
         return view('user.index',['users'=>$users]);
     }
     public function getCreate(){
-        return view('user.create');
+        $formOptions = [];
+        $roles = \App\Role::all();
+        $roleCheckboxes = [];
+        foreach($roles as $role){
+            $roleCheckboxes[$role->name] = [
+                'name'=>'roles[]',
+                'value' => $role->id,
+            ];
+        }
+        return view('user.create',['roleCheckboxes'=>$roleCheckboxes]);
     }
     public function putCreate(UserFormRequest $request){
         $user = new \App\User;
@@ -28,7 +38,16 @@ class UserController extends Controller
     }
     public function getUpdate($userId){
         $user = \App\User::find($userId);
-        return view('user.edit',['user'=>$user]);
+        $roles = \App\Role::all();
+        $roleCheckboxes = [];
+        foreach($roles as $role){
+            $roleCheckboxes[$role->name] = [
+                'name'=>'roles[]',
+                'value' => $role->id,
+                'checked' => $user->hasRole($role->name),
+            ];
+        }
+        return view('user.edit',['user'=>$user,'roleCheckboxes'=>$roleCheckboxes]);
     }
     public function patchUpdate(UserFormRequest $request, $userId){
         $user = \App\User::find($userId);

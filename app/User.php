@@ -38,6 +38,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         $data['password'] = \Hash::make($data['password']);
         $this->fill($data);
         $this->save();
+        if(isset($data['updateRoles']) && $data['updateRoles']){
+            $this->clearAndUpdateRoles($data);
+        }
         return $this;
     }
 
@@ -49,6 +52,23 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
         $this->fill($data);
         $this->save();
+        if(isset($data['updateRoles']) && $data['updateRoles']){
+            $this->clearAndUpdateRoles($data);
+        }
+        return $this;
+    }
+
+    private function clearAndUpdateRoles($data=[]){
+        $this->detachRoles($this->roles);
+        if(!empty($data['roles'])) {
+            $this->attachRoleIds($data['roles']);
+        }
+    }
+
+    public function attachRoleIds($roleIds){
+        foreach ($roleIds as $rid) {
+            $this->attachRole($rid);
+        }
         return $this;
     }
 
