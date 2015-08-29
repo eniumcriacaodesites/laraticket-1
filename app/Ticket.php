@@ -20,16 +20,39 @@ class Ticket extends Model
         return $this->belongsTo('App\Client');
     }
 
+    public function assignedUsers(){
+        return $this->belongsToMany('App\User', 'ticket_users','user_id','ticket_id');
+    }
+
     public function put($data){
         $this->fill($data);
         $this->user_id = \Auth::user()->id;
         $this->save();
+        if(isset($data['updateAssignedUsers']) && $data['updateAssignedUsers']){
+            $assignedUsers = [];
+            if(isset($data['assignedUsers'])){
+                $assignedUsers = $data['assignedUsers'];
+            }
+            $this->clearAndUpdateAssignedUsers($assignedUsers);
+        }
         return $this;
     }
 
     public function patch($data){
         $this->fill($data);
         $this->save();
+        if(isset($data['updateAssignedUsers']) && $data['updateAssignedUsers']){
+            $assignedUsers = [];
+            if(isset($data['assignedUsers'])){
+                $assignedUsers = $data['assignedUsers'];
+            }
+            $this->clearAndUpdateAssignedUsers($assignedUsers);
+        }
+        return $this;
+    }
+
+    private function clearAndUpdateAssignedUsers($assignedUsers){
+        $this->assignedUsers()->sync($assignedUsers);
         return $this;
     }
 

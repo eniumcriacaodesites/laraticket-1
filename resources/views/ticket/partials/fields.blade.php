@@ -13,3 +13,8 @@
     </div>
 </div>
 {!! Former::textarea('description','Description') !!}
+
+@if(isset($formOptions['users']))
+    {!! Former::hidden('updateAssignedUsers',true) !!}
+    {!! Former::multiselect('assignedUsers')->options($formOptions['users']) !!}
+@endif

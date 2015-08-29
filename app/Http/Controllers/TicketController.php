@@ -25,7 +25,8 @@ class TicketController extends Controller
         $statuses = \App\Status::orderBy('weight','ASC')->get();
         $formOptions['statuses'] = \App\Helpers\FormHelper::objectsToKeyValueArray($statuses,'id','name');
         $formOptions['priorities'] = array_combine(range(1,10),range(1,10));
-
+        $users = \App\User::all();
+        $formOptions['users'] = \App\Helpers\FormHelper::objectsToKeyValueArray($users,'id','email');
         return view('ticket.create',['formOptions'=>$formOptions]);
     }
     public function putCreate(TicketFormRequest $request){
@@ -46,7 +47,8 @@ class TicketController extends Controller
         $formOptions['statuses'] = \App\Helpers\FormHelper::objectsToKeyValueArray($statuses,'id','name');
 
         $formOptions['priorities'] = array_combine(range(1,10),range(1,10));
-
+        $users = \App\User::all();
+        $formOptions['users'] = \App\Helpers\FormHelper::objectsToKeyValueArray($users,'id','email');
         return view('ticket.edit',['ticket'=>$ticket,'formOptions'=>$formOptions]);
     }
     public function patchUpdate(TicketFormRequest $request, $ticketId){

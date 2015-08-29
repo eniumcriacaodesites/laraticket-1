@@ -14,6 +14,7 @@
                 <th>Title</th>
                 <th>Date Created</th>
                 <th>Created By</th>
+                <th>Assigned To</th>
                 <th>&nbsp;</th>
             </tr>
         </thead>
@@ -36,6 +37,15 @@
                     <td>
                         @if($ticket->user)
                             {{ $ticket->user->email }}
+                        @endif
+                    </td>
+                    <td>
+                        @if($ticket->assignedUsers)
+                            <ul>
+                            @foreach($ticket->assignedUsers as $assignedUser)
+                                <li>{{ $assignedUser->email }}</li>
+                            @endforeach
+                            </ul>
                         @endif
                     </td>
                     <td>
