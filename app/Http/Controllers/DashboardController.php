@@ -14,6 +14,10 @@ class DashboardController extends Controller
     }
 
     public function getIndex(){
-        return view('dashboard.index');
+        $filters = [
+            'assignedUsers' => [\Auth::user()->id],
+        ];
+        $tickets = \App\Ticket::filter($filters);
+        return view('dashboard.index',['tickets'=>$tickets]);
     }
 }

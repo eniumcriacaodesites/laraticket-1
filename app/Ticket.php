@@ -56,4 +56,18 @@ class Ticket extends Model
         return $this;
     }
 
+    public static function filter($filters=[]){
+        if(!empty($filters)){
+            $ticketQuery = self::select('*');
+            if(!empty($filters['assignedUsers'])){
+                $ticketQuery->join('ticket_users', 'tickets.id', '=', 'ticket_users.ticket_id');
+                $ticketQuery->whereIn('ticket_users.user_id',$filters['assignedUsers']);
+            }
+            $tickets = $ticketQuery->get();
+        }else{
+            $tickets = self::all();
+        }
+        return $tickets;
+    }
+
 }
