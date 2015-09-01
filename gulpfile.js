@@ -23,7 +23,8 @@ elixir(function(mix) {
  mix.styles(
      [
       'bootstrap/dist/css/bootstrap.min.css',
-      'dynatable/jquery.dynatable.css'
+      'dynatable/jquery.dynatable.css',
+      'chosen/chosen.min.css'
      ],
      'public/assets/css/resources.css',
      bowerDir
@@ -32,7 +33,8 @@ elixir(function(mix) {
      [
       'jquery/dist/jquery.min.js',
       'bootstrap/dist/js/bootstrap.min.js',
-      'dynatable/jquery.dynatable.js'
+      'dynatable/jquery.dynatable.js',
+      'chosen/chosen.jquery.min.js'
      ],
      'public/assets/js/resources.js',
      bowerDir

@@ -16,5 +16,5 @@
 
 @if(isset($formOptions['users']))
     {!! Former::hidden('updateAssignedUsers',true) !!}
-    {!! Former::multiselect('assignedUsers')->options($formOptions['users']) !!}
+    {!! Former::multiselect('assignedUsers')->options($formOptions['users'])->addClass('chosen-select')->setAttribute('data-placeholder','Select assigned users') !!}
 @endif
