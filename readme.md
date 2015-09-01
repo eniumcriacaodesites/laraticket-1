@@ -46,3 +46,4 @@ php artisan db:seed
 ## Future
 
 - Client users to manage / create tickets
+- Log actions
