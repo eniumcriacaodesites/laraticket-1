@@ -49,15 +49,15 @@ class AuthTest extends TestCase
     }
 
     public function testPasswordResetSubmitInvalidUserShowsError(){
-        $user = factory(App\User::class)->make();
+        $falseUser = factory(App\User::class)->make();
         $this->visit('password/email')
-            ->type($user->email, 'email')
+            ->type($falseUser->email, 'email')
             ->press('Submit')
             ->seePageIs('password/email')
             ->see('We can\'t find a user with that e-mail address.');
     }
 
-    public function testPasswordResetSubmitValidUserShowsError(){
+    public function testPasswordResetSubmitValidUserShowsSuccess(){
         $user = factory(App\User::class)->create();
         $this->visit('password/email')
             ->type($user->email, 'email')
@@ -66,8 +66,56 @@ class AuthTest extends TestCase
             ->see('We have e-mailed your password reset link!');
     }
 
-    //TODO -- Test email sent
-    //TODO -- Test /password/reset/token w/form submission
+    public function testPasswordResetTokenLinkGoesToResetTokenPage(){
+        $user = factory(App\User::class)->create();
+        $this->visit('password/reset/'.$user->remember_token)
+            ->see('Password Reset');
+    }
+
+    public function testPasswordResetTokenLinkSubmitInvalidUserShowsError(){
+        $user = factory(App\User::class)->create();
+        $this->visit('password/email')
+            ->type($user->email, 'email')
+            ->press('Submit')
+            ->seePageIs('password/email');
+        $passwordReset = \DB::table('password_resets')->where('email',$user->email)->first();
+        $token = $passwordReset->token;
+        $pageURL = 'password/reset/'.$token;
+        $falseUser = factory(App\User::class)->make();
+        $newPassword = $this->faker->password;
+        $this->visit($pageURL)
+            ->type($falseUser->email, 'email')
+            ->type($newPassword, 'password')
+            ->type($newPassword, 'password_confirmation')
+            ->press('Reset Password')
+            ->seePageIs($pageURL)
+            ->see('We can\'t find a user with that e-mail address.');
+    }
+
+    public function testPasswordResetTokenLinkSubmitValidUserShowsSuccess(){
+        $user = factory(App\User::class)->create();
+        $this->visit('password/email')
+            ->type($user->email, 'email')
+            ->press('Submit')
+            ->seePageIs('password/email');
+        $passwordReset = \DB::table('password_resets')->where('email',$user->email)->first();
+        $token = $passwordReset->token;
+        $pageURL = 'password/reset/'.$token;
+        $newPassword = $this->faker->password;
+        $this->visit($pageURL)
+            ->type($user->email, 'email')
+            ->type($newPassword, 'password')
+            ->type($newPassword, 'password_confirmation')
+            ->press('Reset Password')
+            ->see('Dashboard')
+            ->seePageIs('/')
+            ->visit('auth/logout')
+            ->visit('auth/login')
+            ->type($user->email, 'email')
+            ->type($newPassword, 'password')
+            ->press('Submit')
+            ->seePageIs('/');
+    }
 
     public function testLogoutReturnsToLoginForm(){
         $user = factory(App\User::class)->create();
