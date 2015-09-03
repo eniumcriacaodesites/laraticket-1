@@ -23,10 +23,13 @@ class StatusTableSeeder extends Seeder
             [
                 'name' => 'Resolved',
                 'weight' => '20',
+                'billable' => true,
             ],
             [
-                'name' => 'Closed',
+                'name' => 'Archived',
                 'weight' => '30',
+                'billable' => true,
+                'archivable' => true,
             ],
         ];
         foreach($statuses as $statusData){

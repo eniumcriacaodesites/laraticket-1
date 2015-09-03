@@ -3,4 +3,4 @@
 {!! Former::hidden('updateBillable',true) !!}
 {!! Former::checkbox('billable','')->text('Billable') !!}
 {!! Former::hidden('updateArchivable',true) !!}
-{!! Former::checkbox('archivable','')->text('Archived') !!}
+{!! Former::checkbox('archivable','')->text('Archivable') !!}
