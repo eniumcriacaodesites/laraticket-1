@@ -30,8 +30,14 @@ class TicketController extends Controller
         return view('ticket.create',['formOptions'=>$formOptions]);
     }
     public function putCreate(TicketFormRequest $request){
-        $ticket = new \App\Ticket;
+        $ticket = new \App\Ticket();
         $ticket->put($request->all());
+        $newClient = trim($request->client_new);
+        if(!empty($newClient)){
+            $client = new \App\Client();
+            $client->put(['name'=>$newClient]);
+            $ticket->patch(['client_id'=>$client->id]);
+        }
         \Flash::success('Ticket saved.');
         return redirect('tickets');
     }
@@ -53,11 +59,17 @@ class TicketController extends Controller
     }
     public function patchUpdate(TicketFormRequest $request, $ticketId){
         $ticket = \App\Ticket::find($ticketId);
+        $ticket->patch($request->all());
         if(!$ticket){
             \Flash::error('Ticket not found');
             return redirect('tickets');
         }
-        $ticket->patch($request->all());
+        $newClient = trim($request->client_new);
+        if(!empty($newClient)){
+            $client = new \App\Client();
+            $client->put(['name'=>$newClient]);
+            $ticket->patch(['client_id'=>$client->id]);
+        }
         \Flash::success('Ticket saved.');
         return redirect('tickets');
     }

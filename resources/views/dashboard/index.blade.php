@@ -8,6 +8,9 @@
 
     <p><a href="{{ url('tickets/create') }}" class="btn btn-primary">Add New Ticket</a></p>
 
+    @foreach($tickets as $ticket)
+        @include('ticket.partials.panel',['ticket'=>$ticket])
+    @endforeach
 
 
     <table class="table table-striped table-bordered datatable">

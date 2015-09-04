@@ -1,4 +1,11 @@
-{!! Former::select('client_id','Client')->options($formOptions['client']) !!}
+<div class="row">
+    <div class="col-sm-6">
+        {!! Former::select('client_id','Select a Client')->options($formOptions['client']) !!}
+    </div>
+    <div class="col-sm-6">
+        {!! Former::text('client_new','or Create a New Client') !!}
+    </div>
+</div>
 {!! Former::text('title','Title') !!}
 <div class="row">
     <div class="col-sm-6">

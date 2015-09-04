@@ -39,11 +39,11 @@ php artisan db:seed
 
 ## What's Next?
 
-- Ticket management
-  - Assign one or more users to ticket
-- Dashboard to view tickets (View my / View all / Filter status)
+- Dashboard to view tickets (View my / View all / Filter status) (not filtering correctly)
+- Billable / Timesheet stuff
 
 ## Future
 
 - Client users to manage / create tickets
 - Log actions
+- Enable markdown

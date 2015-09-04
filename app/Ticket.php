@@ -64,6 +64,7 @@ class Ticket extends Model
                 $ticketQuery->whereIn('ticket_users.user_id',$filters['assignedUsers']);
             }
             $tickets = $ticketQuery->get();
+            $tickets = self::all();
         }else{
             $tickets = self::all();
         }
