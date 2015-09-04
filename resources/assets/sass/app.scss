@@ -5,3 +5,41 @@ th a{
     color: #666;
   }
 }
+
+
+@mixin panel-priority($color) {
+  border-color:$color;
+}
+
+.panel-ticket{
+  &.ticket-priority-1{
+    @include panel-priority(#002aff);
+  }
+  &.ticket-priority-2{
+    @include panel-priority(#0090ff);
+  }
+  &.ticket-priority-3{
+    @include panel-priority(#00ffff);
+  }
+  &.ticket-priority-4{
+    @include panel-priority(#00ff90);
+  }
+  &.ticket-priority-5{
+    @include panel-priority(#ff5b00);
+  }
+  &.ticket-priority-6{
+    @include panel-priority(#5bff00);
+  }
+  &.ticket-priority-7{
+    @include panel-priority(#c6ff00);
+  }
+  &.ticket-priority-8{
+    @include panel-priority(#ffc600);
+  }
+  &.ticket-priority-9{
+    @include panel-priority(#ff5b00);
+  }
+  &.ticket-priority-10{
+    @include panel-priority(#FF0000);
+  }
+}
