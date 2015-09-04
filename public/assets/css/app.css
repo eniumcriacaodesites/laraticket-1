@@ -4,33 +4,33 @@ th a {
     color: #666; }
 
 .panel-ticket.ticket-priority-1 {
-  border-color: #002aff; }
+  border-color: #a3a3a3; }
 
 .panel-ticket.ticket-priority-2 {
-  border-color: #0090ff; }
+  border-color: #a78f8f; }
 
 .panel-ticket.ticket-priority-3 {
-  border-color: #00ffff; }
+  border-color: #b07979; }
 
 .panel-ticket.ticket-priority-4 {
-  border-color: #00ff90; }
+  border-color: #bb5c5c; }
 
 .panel-ticket.ticket-priority-5 {
-  border-color: #ff5b00; }
+  border-color: #ba4242; }
 
 .panel-ticket.ticket-priority-6 {
-  border-color: #5bff00; }
+  border-color: #985656; }
 
 .panel-ticket.ticket-priority-7 {
-  border-color: #c6ff00; }
+  border-color: #984b4b; }
 
 .panel-ticket.ticket-priority-8 {
-  border-color: #ffc600; }
+  border-color: #ba2b2b; }
 
 .panel-ticket.ticket-priority-9 {
-  border-color: #ff5b00; }
+  border-color: #ba1414; }
 
 .panel-ticket.ticket-priority-10 {
-  border-color: #FF0000; }
+  border-color: #ba0000; }
 
 /*# sourceMappingURL=app.css.map */

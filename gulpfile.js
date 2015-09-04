@@ -13,7 +13,7 @@ var bowerDir = './resources/assets/bower/';
  */
 
 elixir(function(mix) {
- mix.phpUnit();
+ //mix.phpUnit();
  mix.sass(
      [
       'app.scss'

@@ -13,33 +13,33 @@ th a{
 
 .panel-ticket{
   &.ticket-priority-1{
-    @include panel-priority(#002aff);
+    @include panel-priority(#a3a3a3);
   }
   &.ticket-priority-2{
-    @include panel-priority(#0090ff);
+    @include panel-priority(#a78f8f);
   }
   &.ticket-priority-3{
-    @include panel-priority(#00ffff);
+    @include panel-priority(#b07979);
   }
   &.ticket-priority-4{
-    @include panel-priority(#00ff90);
+    @include panel-priority(#bb5c5c);
   }
   &.ticket-priority-5{
-    @include panel-priority(#ff5b00);
+    @include panel-priority(#ba4242);
   }
   &.ticket-priority-6{
-    @include panel-priority(#5bff00);
+    @include panel-priority(#985656);
   }
   &.ticket-priority-7{
-    @include panel-priority(#c6ff00);
+    @include panel-priority(#984b4b);
   }
   &.ticket-priority-8{
-    @include panel-priority(#ffc600);
+    @include panel-priority(#ba2b2b);
   }
   &.ticket-priority-9{
-    @include panel-priority(#ff5b00);
+    @include panel-priority(#ba1414);
   }
   &.ticket-priority-10{
-    @include panel-priority(#FF0000);
+    @include panel-priority(#ba0000);
   }
 }
