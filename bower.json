@@ -14,8 +14,9 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4",
     "bootstrap": "~3.3.5",
-    "dynatable": "~0.3.1"
+    "chosen": "~1.4.2",
+    "dynatable": "~0.3.1",
+    "jquery": "~2.1.4"
   }
 }

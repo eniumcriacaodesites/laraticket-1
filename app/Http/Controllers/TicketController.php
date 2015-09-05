@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TicketFormRequest;
+use App\Http\Requests\TicketMessageFormRequest;
 
 class TicketController extends Controller
 {
@@ -83,5 +84,18 @@ class TicketController extends Controller
         $ticket->delete();
         \Flash::success('Ticket Deleted');
         return redirect('tickets');
+    }
+
+    public function putMessageCreate($ticketId, TicketMessageFormRequest $request){
+        $ticketLog = new \App\TicketLog();
+        $ticketLog->put($request->all());
+        $ticketLog->ticket_id = $ticketId;
+        $ticketLog->save();
+        if($request->wantsJson()) {
+            return response()->json(['ticketLogId' => $ticketLog->id]);
+        }else{
+            \Flash::success('Message Created');
+            return redirect('tickets/edit/'.$ticketId);
+        }
     }
 }

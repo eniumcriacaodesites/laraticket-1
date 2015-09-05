@@ -12,6 +12,9 @@ th a{
 }
 
 .panel-ticket{
+  .logs{
+    margin-top:15px;
+  }
   &.ticket-priority-1{
     @include panel-priority(#a3a3a3);
   }

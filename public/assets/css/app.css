@@ -3,6 +3,9 @@ th a {
   th a:hover {
     color: #666; }
 
+.panel-ticket .logs {
+  margin-top: 15px; }
+
 .panel-ticket.ticket-priority-1 {
   border-color: #a3a3a3; }
 

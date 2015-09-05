@@ -1,5 +1,35 @@
 @extends('templates.dashboard')
 
+@section('scripts')
+<script>
+$(document).ready(function(){
+    $('.ticket-message-form').on('submit', function(e) {
+        e.preventDefault();  //prevent form from submitting
+        var actionURL = $(this).attr('action');
+        var message = $('[name="message"]',this).val();
+        var token = $('[name="_token"]',this).val();
+        var ticketId = $(this).data('ticket-id');
+        var response = ajaxCreateTicketMessage(actionURL, ticketId, message, token);
+    });
+    function ajaxCreateTicketMessage(actionURL, ticketId, message, token){
+        $.ajax({
+            url: actionURL,
+            type: 'PUT',
+            data: {'_token': token, 'message': message},
+            dataType: 'JSON',
+            success: function (data) {
+                console.log(data);
+                console.log(ticketId);
+            }
+        });
+    }
+    function ajaxRefreshTicket(){
+
+    }
+});
+</script>
+@endsection
+
 @section('title', 'Dashboard')
 
 @section('content')

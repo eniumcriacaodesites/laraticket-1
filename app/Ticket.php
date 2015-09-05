@@ -24,6 +24,10 @@ class Ticket extends Model
         return $this->belongsToMany('App\User', 'ticket_users','user_id','ticket_id');
     }
 
+    public function ticketLogs(){
+        return $this->hasMany('App\TicketLog');
+    }
+
     public function put($data){
         $this->fill($data);
         $this->user_id = \Auth::user()->id;
