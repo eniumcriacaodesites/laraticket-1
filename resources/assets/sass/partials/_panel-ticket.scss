@@ -1,0 +1,63 @@
+@mixin icon-priority($color) {
+  background-color:$color;
+}
+
+.panel-ticket{
+  .logs{
+    margin-top:15px;
+  }
+  .col-priority{
+    float:right;
+  }
+  .col-status{
+    float: left;
+    margin-right:15px;
+  }
+  .col-assigned-users{
+    float: right;
+    text-align: right;
+    .assigned-users-none{
+      font-size:12px;
+      color:#000;
+    }
+  }
+}
+
+.icon-priority{
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius:7px;
+  background-color:#DDD;
+  border:solid 1px #DDD;
+  &.icon-priority-1{
+    @include icon-priority(#a3a3a3);
+  }
+  &.icon-priority-2{
+    @include icon-priority(#a78f8f);
+  }
+  &.icon-priority-3{
+    @include icon-priority(#b07979);
+  }
+  &.icon-priority-4{
+    @include icon-priority(#bb5c5c);
+  }
+  &.icon-priority-5{
+    @include icon-priority(#ba4242);
+  }
+  &.icon-priority-6{
+    @include icon-priority(#985656);
+  }
+  &.icon-priority-7{
+    @include icon-priority(#984b4b);
+  }
+  &.icon-priority-8{
+    @include icon-priority(#ba2b2b);
+  }
+  &.icon-priority-9{
+    @include icon-priority(#ba1414);
+  }
+  &.icon-priority-10{
+    @include icon-priority(#ba0000);
+  }
+}

@@ -86,6 +86,15 @@ class TicketController extends Controller
         return redirect('tickets');
     }
 
+    public function getShow(\Illuminate\Http\Request $request, $ticketId){
+        $ticket = \App\Ticket::find($ticketId);
+        if($request->wantsJson()) {
+            return response()->json(['ticket' => $ticket]);
+        }else{
+            return '';
+        }
+    }
+
     public function putMessageCreate($ticketId, TicketMessageFormRequest $request){
         $ticketLog = new \App\TicketLog();
         $ticketLog->put($request->all());

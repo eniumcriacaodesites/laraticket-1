@@ -1,48 +1,9 @@
+@import 'partials/_panel-ticket.scss';
+
 //Override dynatable
-th a{
+th a {
   color: #000;
-  &:hover{
+  &:hover {
     color: #666;
-  }
-}
-
-
-@mixin panel-priority($color) {
-  border-color:$color;
-}
-
-.panel-ticket{
-  .logs{
-    margin-top:15px;
-  }
-  &.ticket-priority-1{
-    @include panel-priority(#a3a3a3);
-  }
-  &.ticket-priority-2{
-    @include panel-priority(#a78f8f);
-  }
-  &.ticket-priority-3{
-    @include panel-priority(#b07979);
-  }
-  &.ticket-priority-4{
-    @include panel-priority(#bb5c5c);
-  }
-  &.ticket-priority-5{
-    @include panel-priority(#ba4242);
-  }
-  &.ticket-priority-6{
-    @include panel-priority(#985656);
-  }
-  &.ticket-priority-7{
-    @include panel-priority(#984b4b);
-  }
-  &.ticket-priority-8{
-    @include panel-priority(#ba2b2b);
-  }
-  &.ticket-priority-9{
-    @include panel-priority(#ba1414);
-  }
-  &.ticket-priority-10{
-    @include panel-priority(#ba0000);
   }
 }

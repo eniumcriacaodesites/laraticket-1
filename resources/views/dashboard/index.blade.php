@@ -18,13 +18,25 @@ $(document).ready(function(){
             data: {'_token': token, 'message': message},
             dataType: 'JSON',
             success: function (data) {
-                console.log(data);
-                console.log(ticketId);
+                //console.log(data);
+                //console.log(ticketId);
+                ajaxRefreshTicket(ticketId);
             }
         });
     }
-    function ajaxRefreshTicket(){
-
+    function ajaxRefreshTicket(ticketId){
+        $.ajax({
+            url: 'tickets/show/'+ticketId+'',
+            type: 'GET',
+            dataType: 'JSON',
+            success: function (data) {
+                refreshTicket(data.ticket);
+            }
+        });
+    }
+    function refreshTicket(ticket){
+        //messages
+        console.log(ticket.ticketLogs);
     }
 });
 </script>

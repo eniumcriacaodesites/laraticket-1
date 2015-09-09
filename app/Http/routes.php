@@ -65,5 +65,6 @@ Route::group(['prefix'=>'tickets'],function(){
     Route::get('edit/{ticketId}','TicketController@getUpdate');
     Route::patch('edit/{ticketId}','TicketController@patchUpdate');
     Route::delete('delete/{ticketId}','TicketController@deleteDelete');
+    Route::get('show/{ticketId}','TicketController@getShow');
     Route::put('edit/{ticketId}/message/create','TicketController@putMessageCreate');
 });
