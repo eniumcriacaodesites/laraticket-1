@@ -1,4 +1,4 @@
-<div class="panel panel-default panel-ticket">
+<div class="panel panel-default panel-ticket panel-ticket-{{ $ticket->id }}">
     <div class="panel-heading" data-toggle="collapse" data-target="#collapse-ticket-panel-{{ $ticket->id }}">
         <h3 class="panel-title clearfix">
             <div class="col-priority">
@@ -20,7 +20,7 @@
                     @if($ticket->ticketLogs)
                         <div class="logs list-group">
                             @foreach($ticket->ticketLogs as $log)
-                                <div class="list-group-item">
+                                <div class="log list-group-item">
                                     @if($log->user)
                                         <p>
                                             <small class="label label-default">{{ $log->user->email }}</small>

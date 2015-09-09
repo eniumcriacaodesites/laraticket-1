@@ -88,7 +88,16 @@ class TicketController extends Controller
 
     public function getShow(\Illuminate\Http\Request $request, $ticketId){
         $ticket = \App\Ticket::find($ticketId);
+
+
+        //Need to re-set magic methods
+        $ticket->ticketLogs = $ticket->ticketLogs;
+        foreach($ticket->ticketLogs as $ticketLogKey => $ticketLog){
+            $ticket->ticketLogs[$ticketLogKey]->user = $ticketLog->user;
+        }
+
         if($request->wantsJson()) {
+
             return response()->json(['ticket' => $ticket]);
         }else{
             return '';
