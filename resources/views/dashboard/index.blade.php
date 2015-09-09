@@ -43,7 +43,7 @@ $(document).ready(function(){
         $('.panel-ticket-'+ticket.id+' .log-form [name="message"]').val('');
         for(var i=0;i<messages.length;i++){
             var logHTML = '<div class="log list-group-item">';
-            logHTML += '<p><small class="label label-default">'+messages[i].user.email+'</small></p>';
+            logHTML += '<p><small class="label label-default"><strong>'+messages[i].created_at+'</strong> - '+messages[i].user.email+'</small></p>';
             logHTML += messages[i].message;
             logHTML += '</div>';
             $('.panel-ticket-'+ticket.id+' .logs').append(logHTML);

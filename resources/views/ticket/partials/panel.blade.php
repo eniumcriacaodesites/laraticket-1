@@ -23,7 +23,7 @@
                                 <div class="log list-group-item">
                                     @if($log->user)
                                         <p>
-                                            <small class="label label-default">{{ $log->user->email }}</small>
+                                            <small class="label label-default"><strong>{{ $log->created_at }}</strong> - {{ $log->user->email }}</small>
                                         </p>
                                     @endif
                                     {{ $log->message }}
