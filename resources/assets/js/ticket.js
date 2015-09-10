@@ -1,13 +1,4 @@
 $(document).ready(function(){
-    $('.datatable').dynatable();
-    $('.chosen-select').chosen();
-    $(".form-confirm-delete").submit(function() {
-        var deleteName = $('.delete-name',this).val();
-        var c = confirm("Are you sure you want to delete "+deleteName+"?");
-        return c;
-    });
-});
-$(document).ready(function(){
     $('.ticket-message-form').on('submit', function(e) {
         e.preventDefault();  //prevent form from submitting
         var actionURL = $(this).attr('action');
@@ -55,4 +46,3 @@ $(document).ready(function(){
         }
     }
 });
-//# sourceMappingURL=app.js.map
